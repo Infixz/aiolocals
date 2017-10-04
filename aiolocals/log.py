@@ -12,11 +12,11 @@ class RequestIdLoggingFilter(logging.Filter):
     def filter(self, record):
         try:
             record.request_id = '' if not request.id else request.id
-            record.request_path = '' if not request.path else request.path
+            # record.request_path = '' if not request.path else request.path
         except (AttributeError, ValueError):
             # likely not initialized yet
             record.request_id = ''
-            record.request_path = ''
+            # record.request_path = ''
         return True
 
 
